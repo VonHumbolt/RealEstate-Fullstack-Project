@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { HouseService } from './house.service';
 import { HouseDto } from './dto/house.dto';
 import { Role } from 'src/auth/decorators/role';
@@ -20,8 +20,8 @@ export class HouseController {
     return this.houseService.getByIdHouse(id)
   }
 
-  @Post('search/:input')
-  searchHouse(@Param('input') input: string) {
+  @Post('search')
+  searchHouse(@Query('text') input: string) {
     return this.houseService.searchHouse(input)
   }
 

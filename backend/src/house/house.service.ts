@@ -19,11 +19,15 @@ export class HouseService {
         }) 
     }
 
-    // hem title hem de location icerisinde ara!
     async searchHouse(input: string) {
         return await this.prismaService.house.findMany({
             where: {
-                title: input
+                title: {
+                    search: input
+                },
+                location: {
+                    search: input
+                }
             }
         })
     }
