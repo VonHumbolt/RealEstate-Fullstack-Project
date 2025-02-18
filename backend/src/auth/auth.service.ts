@@ -40,7 +40,7 @@ export class AuthService {
             data: {
                 email: dto.email,
                 fullname: dto.fullname,
-                phoneNumber: dto.fullname,
+                phoneNumber: dto.phoneNumber,
                 password: hash
             }, 
             select: {

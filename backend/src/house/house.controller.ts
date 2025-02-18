@@ -20,7 +20,7 @@ export class HouseController {
     return this.houseService.getByIdHouse(id)
   }
 
-  @Post('search')
+  @Get('search')
   searchHouse(@Query('text') input: string) {
     return this.houseService.searchHouse(input)
   }

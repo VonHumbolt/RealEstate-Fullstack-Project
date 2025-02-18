@@ -7,4 +7,7 @@ export class HouseService {
         return axios.get(this.apiUrl + "getall")
     }
 
+    search(text: string) {
+        return axios.get(this.apiUrl + "search?text=" + text)
+    }
 }

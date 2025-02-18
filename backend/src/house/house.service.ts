@@ -5,10 +5,30 @@ import { HouseDto } from './dto/house.dto';
 @Injectable()
 export class HouseService {
 
-    constructor(private prismaService: PrismaService) {}
+    constructor(private prismaService: PrismaService) { }
 
     async getallHouse() {
-        return await this.prismaService.house.findMany({})
+        return await this.prismaService.house.findMany({
+            select: {
+                title: true,
+                price: true,
+                location: true,
+                roomCount: true,
+                bathCount: true,
+                totalArea: true,
+                type: true,
+                ownerId: true,
+                owner: {
+                    select: {
+                        id: true,
+                        fullname: true,
+                        email: true,
+                        phoneNumber: true
+                    }
+                }
+            }
+        }
+        )
     }
 
     async getByIdHouse(id: number) {
@@ -16,7 +36,7 @@ export class HouseService {
             where: {
                 id: Number(id)
             }
-        }) 
+        })
     }
 
     async searchHouse(input: string) {
@@ -27,6 +47,24 @@ export class HouseService {
                 },
                 location: {
                     search: input
+                }
+            },
+            select: {
+                title: true,
+                price: true,
+                location: true,
+                roomCount: true,
+                bathCount: true,
+                totalArea: true,
+                type: true,
+                ownerId: true,
+                owner: {
+                    select: {
+                        id: true,
+                        fullname: true,
+                        email: true,
+                        phoneNumber: true
+                    }
                 }
             }
         })
@@ -42,8 +80,8 @@ export class HouseService {
                 roomCount: dto.roomCount,
                 totalArea: dto.totalArea,
                 ownerId: dto.ownerId
-            }
+            },
         })
-     }
+    }
 
 }
