@@ -10,4 +10,8 @@ export class HouseService {
     search(text: string) {
         return axios.get(this.apiUrl + "search?text=" + text)
     }
+
+    getById(id: number) {
+        return axios.get(this.apiUrl + "getById/" + id)
+    }
 }

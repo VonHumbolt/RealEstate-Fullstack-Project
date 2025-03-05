@@ -2,24 +2,46 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Montserrat, Montserrat_Alternates } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const prompt = localFont({
+  src: [
+    {
+      path: "./fonts/Prompt-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Prompt-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Prompt-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Prompt-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Prompt-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Prompt-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-prompt",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const montserratSan = Montserrat({
-  subsets: ["latin"],
-});
-
 
 export const metadata: Metadata = {
-  title: "Real Estate App",
+  title: "Real Estate",
   description: "Sale, Rent or Find the best houses!",
 };
 
@@ -31,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserratSan.className} antialiased`}
+        className={`font-prompt ${prompt.variable}`}
       >
         <Header />
         <div>

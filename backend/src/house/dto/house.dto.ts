@@ -28,8 +28,10 @@ export class HouseDto {
     @IsNotEmpty()
     @IsNumber()
     totalArea: number
-
-    image: String
+    
+    @IsString()
+    @IsNotEmpty()
+    image: string
 
     @IsNotEmpty()
     ownerId: number

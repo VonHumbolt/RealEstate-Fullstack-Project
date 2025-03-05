@@ -45,7 +45,7 @@ model House {
   roomCount Int
   bathCount Int
   totalArea Int
-  image String?
+  image String[]
   owner User @relation(fields: [ownerId], references: [id])
   ownerId Int
 }

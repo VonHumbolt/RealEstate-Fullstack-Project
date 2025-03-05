@@ -10,6 +10,7 @@ export class HouseService {
     async getallHouse() {
         return await this.prismaService.house.findMany({
             select: {
+                id: true,
                 title: true,
                 price: true,
                 location: true,
@@ -17,6 +18,7 @@ export class HouseService {
                 bathCount: true,
                 totalArea: true,
                 type: true,
+                image: true,
                 ownerId: true,
                 owner: {
                     select: {
@@ -35,6 +37,26 @@ export class HouseService {
         return await this.prismaService.house.findUnique({
             where: {
                 id: Number(id)
+            },
+            select: {
+                id: true,
+                title: true,
+                price: true,
+                location: true,
+                roomCount: true,
+                bathCount: true,
+                totalArea: true,
+                type: true,
+                image: true,
+                ownerId: true,
+                owner: {
+                    select: {
+                        id: true,
+                        fullname: true,
+                        email: true,
+                        phoneNumber: true
+                    }
+                }
             }
         })
     }
@@ -57,6 +79,7 @@ export class HouseService {
                 bathCount: true,
                 totalArea: true,
                 type: true,
+                image: true,
                 ownerId: true,
                 owner: {
                     select: {
@@ -75,11 +98,12 @@ export class HouseService {
             data: {
                 title: dto.title,
                 price: dto.price,
+                image: [dto.image],
                 location: dto.location,
                 bathCount: dto.bathCount,
                 roomCount: dto.roomCount,
                 totalArea: dto.totalArea,
-                ownerId: dto.ownerId
+                ownerId: dto.ownerId,
             },
         })
     }

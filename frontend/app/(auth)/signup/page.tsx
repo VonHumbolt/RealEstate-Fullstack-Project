@@ -69,14 +69,14 @@ function Signup() {
           />
         </div>
 
-        <button className="bg-red-400 text-white py-2 px-4 rounded-md mt-4 w-full">
+        <button className="bg-primary text-white py-2 px-4 rounded-md mt-4 w-full">
           Signup
         </button>
 
         <p className="text-gray-500 text-sm mt-4">
           Do you have an account?{" "}
           <Link href={"/login"}>
-            <span className="text-red-400 hover:underline cursor-pointer">
+            <span className="text-primary hover:underline cursor-pointer">
               Login now!
             </span>
           </Link>

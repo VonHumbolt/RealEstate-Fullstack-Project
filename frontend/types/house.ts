@@ -7,7 +7,7 @@ export type House = {
     roomCount: number,
     bathCount: number,
     totalArea: number,
-    image: string,
+    image: string[],
     ownerId: number,
     owner: {
         id: number,

@@ -9,7 +9,27 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			"prompt": ["var(--font-prompt)"],
+		},
   		colors: {
+			black: {
+				DEFAULT: "#000000",
+				100: "#303030"
+			},
+			white: {
+				DEFAULT: "#ffffff",
+				100: "#EEEEEE",
+				200: "#928F8F"
+			},
+			primary: {
+				DEFAULT: "#52B69A",
+				100: "#D9ED92",
+				200: "#76C893"
+			},
+			secondary: {
+				DEFAULT: "#1A759F"
+			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -20,14 +40,14 @@ export default {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
   			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
+  			// primary: {
+  			// 	DEFAULT: 'hsl(var(--primary))',
+  			// 	foreground: 'hsl(var(--primary-foreground))'
+  			// },
+  			// secondary: {
+  			// 	DEFAULT: 'hsl(var(--secondary))',
+  			// 	foreground: 'hsl(var(--secondary-foreground))'
+  			// },
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'

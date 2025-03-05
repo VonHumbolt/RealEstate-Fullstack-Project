@@ -33,14 +33,14 @@ function Login() {
           />
         </div>
 
-        <button className="bg-red-400 text-white py-2 px-4 rounded-md mt-4 w-full">
+        <button className="bg-primary text-white py-2 px-4 rounded-md mt-4 w-full">
           Login
         </button>
 
         <p className="text-gray-500 text-sm mt-4">
           Don't you have an account?{" "}
           <Link href={"/signup"}>
-            <span className="text-red-400 hover:underline cursor-pointer">Create an account!</span>
+            <span className="text-primary hover:underline cursor-pointer">Create an account!</span>
           </Link>
         </p>
       </Form>
