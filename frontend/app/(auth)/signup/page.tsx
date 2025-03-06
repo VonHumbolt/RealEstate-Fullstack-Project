@@ -3,7 +3,9 @@ import { AuthService } from "@/services/auth.service";
 import { SignupDto } from "@/types/signup.dto";
 import Form from "next/form";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
+import { toast } from "sonner";
 
 function Signup() {
 
@@ -18,8 +20,10 @@ function Signup() {
     } as SignupDto;
 
     authService.signup(data).then(res => {
-      // next auth
-      console.log(res.data)
+      if(res.status == 201) {
+        toast.success('Your account is successfully created!')
+        redirect("/login")
+      }
     })
   };
 

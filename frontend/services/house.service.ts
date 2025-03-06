@@ -14,4 +14,12 @@ export class HouseService {
     getById(id: number) {
         return axios.get(this.apiUrl + "getById/" + id)
     }
+    
+    create(house: any, token: string) {
+        return axios.post(this.apiUrl + "add", house, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    }
 }

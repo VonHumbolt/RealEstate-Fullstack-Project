@@ -1,23 +1,27 @@
-'use client'
-import Form from "next/form";
+import { auth, signIn } from "@/auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 
-function Login() {
+async function Login() {
 
-    const login = (e: any) => {
-        console.log(e)
-    }
+  const session = await auth()
+
+  if(session) redirect("/") 
 
   return (
     <div className="max-w-7xl mx-auto mt-6 md:mt-12 flex justify-center">
-      <Form
-        action={login}
-        className="bg-white p-6 rounded-xl border shadow-md w-96 md:w-[650px]"
+      <form
+        action={async (formData) => {
+          "use server"
+          await signIn("credentials", formData)
+        }}
+       className="bg-white p-6 rounded-xl border shadow-md w-96 md:w-[650px]"
       >
         <div className="flex flex-col space-y-1">
           <label className="text-sm">Email</label>
           <input
+            name="email"
             type="email"
             placeholder="example@gmail.com"
             className="border rounded-xl p-2"
@@ -27,6 +31,7 @@ function Login() {
         <div className="flex flex-col space-y-1 mt-4">
           <label className="text-sm">Password</label>
           <input
+            name="password"
             type="password"
             placeholder="*****"
             className="border rounded-xl p-2"
@@ -43,7 +48,7 @@ function Login() {
             <span className="text-primary hover:underline cursor-pointer">Create an account!</span>
           </Link>
         </p>
-      </Form>
+      </form>
     </div>
   );
 }

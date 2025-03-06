@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Montserrat, Montserrat_Alternates } from "next/font/
 import "./globals.css";
 import Header from "@/components/Header";
 import localFont from "next/font/local";
+import { Toaster } from "sonner";
 
 const prompt = localFont({
   src: [
@@ -59,6 +60,7 @@ export default function RootLayout({
         <div>
           {children}
         </div>
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );
